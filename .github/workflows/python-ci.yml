@@ -24,9 +24,12 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Print environment variables
-        run: |
-          echo "OPENAI_API_KEY=${OPENAI_API_KEY}"
+      - name: Install Jupyter and nbconvert
+        run: pip install jupyter nbconvert
+
+
+      - name: Convert Jupyter Notebook to script
+        run: jupyter nbconvert --to script 04-prompt-engineering-fundamentals/1-introduction.ipynb
 
       - name: Run tests
-        run: python 04-prompt-engineering-fundamentals/1-introduction.ipynb
+        run: python 1-introduction.py
