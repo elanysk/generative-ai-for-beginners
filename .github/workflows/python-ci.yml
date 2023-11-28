@@ -24,12 +24,11 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Install Jupyter and nbconvert
-        run: pip install jupyter nbconvert
-
-
       - name: Convert Jupyter Notebook to script
         run: jupyter nbconvert --to script 04-prompt-engineering-fundamentals/1-introduction.ipynb
 
+      - name: List files in the directory
+        run: ls 04-prompt-engineering-fundamentals
+
       - name: Run tests
-        run: python 1-introduction.py
+        run: python 04-prompt-engineering-fundamentals/1-introduction.py
