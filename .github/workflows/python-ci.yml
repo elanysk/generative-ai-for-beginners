@@ -5,12 +5,12 @@ on:
     branches:
       - main
 
+env:
+  OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
-
-    env:
-      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
     steps:
       - name: Checkout repository
@@ -23,6 +23,10 @@ jobs:
 
       - name: Install dependencies
         run: pip install -r requirements.txt
+
+      - name: Print environment variables
+        run: |
+          echo "OPENAI_API_KEY=${OPENAI_API_KEY}"
 
       - name: Run tests
         run: python 04-prompt-engineering-fundamentals/1-introduction.ipynb
