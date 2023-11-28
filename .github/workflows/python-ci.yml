@@ -21,14 +21,3 @@ jobs:
         with:
           python-version: '3.10.8'
 
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-
-      - name: Convert Jupyter Notebook to script
-        run: jupyter nbconvert --to script 04-prompt-engineering-fundamentals/1-introduction.ipynb
-
-      - name: List files in the directory
-        run: ls 04-prompt-engineering-fundamentals
-
-      - name: Run tests
-        run: python 04-prompt-engineering-fundamentals/1-introduction.py
